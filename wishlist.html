@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wishlist | DriveX</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+}
+
+/* Navbar */
+
+nav{
+    background:#0F172A;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.logo{
+    color:white;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.logo i{
+    color:#FF6B00;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    padding:10px 18px;
+    border-radius:25px;
+    transition:.3s;
+}
+
+nav ul li a:hover,
+.active{
+    background:#FF6B00;
+}
+
+/* Banner */
+
+.banner{
+    height:40vh;
+    background:
+    linear-gradient(rgba(0,0,0,.6),
+    rgba(0,0,0,.6)),
+    url('images/hero-car.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-align:center;
+}
+
+.banner h1{
+    font-size:55px;
+}
+
+.banner p{
+    margin-top:15px;
+    font-size:20px;
+}
+
+/* Wishlist */
+
+.wishlist{
+    width:85%;
+    margin:70px auto;
+}
+
+.wishlist h2{
+    margin-bottom:35px;
+    color:#0F172A;
+}
+
+/* Car Grid */
+
+.car-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.content{
+    padding:25px;
+}
+
+.content h3{
+    color:#0F172A;
+}
+
+.details{
+    margin:15px 0;
+    color:#666;
+}
+
+.price{
+    font-size:28px;
+    color:#FF6B00;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+/* Buttons */
+
+.buttons{
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    flex:1;
+    border:none;
+    padding:12px;
+    border-radius:10px;
+    cursor:pointer;
+    color:white;
+    font-size:15px;
+}
+
+.view{
+    background:#0F172A;
+}
+
+.remove{
+    background:#ef4444;
+}
+
+/* Empty Wishlist */
+
+.empty{
+    background:white;
+    padding:60px;
+    text-align:center;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    display:none;
+}
+
+.empty i{
+    font-size:70px;
+    color:#FF6B00;
+    margin-bottom:20px;
+}
+
+/* Footer */
+
+footer{
+    background:#0F172A;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:70px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav ul{
+        justify-content:center;
+    }
+
+    .banner h1{
+        font-size:40px;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+
+<nav>
+
+<div class="logo">
+<i class="fa-solid fa-car"></i>
+DriveX
+</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="vehicles.html">Vehicles</a></li>
+<li><a href="wishlist.html" class="active">Wishlist</a></li>
+<li><a href="payment.html">Payment</a></li>
+<li><a href="profile.html">Profile</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+</nav>
+
+<!-- Banner -->
+
+<section class="banner">
+
+<div>
+<h1>My Wishlist</h1>
+<p>Your favorite dream cars in one place.</p>
+</div>
+
+</section>
+
+<!-- Wishlist Section -->
+
+<section class="wishlist">
+
+<h2>Saved Vehicles</h2>
+
+<div class="car-grid" id="wishlistGrid">
+
+<!-- Card 1 -->
+
+<div class="card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM1pgqI-9k9zn0KiCQP0yD9OXtfyI0wIrNP9qsg0PNxw&s=10">
+
+<div class="content">
+
+<h3>BMW X5</h3>
+
+<p class="details">
+2022 • Diesel • Automatic
+</p>
+
+<div class="price">
+₹45,00,000
+</div>
+
+<div class="buttons">
+
+<button class="btn view"
+onclick="location.href='vehicle-details.html'">
+View Details
+</button>
+
+<button class="btn remove"
+onclick="removeCar(this)">
+Remove
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Card 2 -->
+
+<div class="card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt2wsuitJ7dQbQhhAsSxToV5J_RS8CHD5fZ_aOMRBeyA&s=10">
+
+<div class="content">
+
+<h3>Audi A6</h3>
+
+<p class="details">
+2021 • Petrol • Automatic
+</p>
+
+<div class="price">
+₹38,50,000
+</div>
+
+<div class="buttons">
+
+<button class="btn view"
+onclick="location.href='vehicle-details.html'">
+View Details
+</button>
+
+<button class="btn remove"
+onclick="removeCar(this)">
+Remove
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Card 3 -->
+
+<div class="card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwSQALujm9BsxKaEUQwaNfTamBZiuuJeYd7Sx_LU_A9w&s=10">
+
+<div class="content">
+
+<h3>Mercedes C-Class</h3>
+
+<p class="details">
+2023 • Petrol • Automatic
+</p>
+
+<div class="price">
+₹55,00,000
+</div>
+
+<div class="buttons">
+
+<button class="btn view"
+onclick="location.href='vehicle-details.html'">
+View Details
+</button>
+
+<button class="btn remove"
+onclick="removeCar(this)">
+Remove
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Empty Wishlist -->
+
+<div class="empty" id="emptyBox">
+
+<i class="fa-regular fa-heart"></i>
+
+<h2>Your Wishlist is Empty</h2>
+
+<p>Add your favorite vehicles to see them here.</p>
+
+<br>
+
+<button class="btn view"
+onclick="location.href='vehicles.html'"
+style="max-width:250px;">
+Browse Cars
+</button>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+<h3>DriveX</h3>
+
+<p>Premium Second-Hand Vehicle Marketplace</p>
+
+<p>© 2026 All Rights Reserved.</p>
+
+</footer>
+
+<script>
+
+function removeCar(button){
+
+button.closest(".card").remove();
+
+let cards =
+document.querySelectorAll(".card");
+
+if(cards.length===0){
+document.getElementById("wishlistGrid")
+.style.display="none";
+
+document.getElementById("emptyBox")
+.style.display="block";
+}
+
+}
+
+</script>
+
+</body>
+</html>

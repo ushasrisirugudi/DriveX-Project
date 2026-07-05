@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DriveX - Premium Used Cars</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#F8FAFC;
+}
+
+/* Navbar */
+
+nav{
+    background:#0F172A;
+    padding:18px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:#fff;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.logo i{
+    color:#FF6B00;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    padding:10px 16px;
+    border-radius:25px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    background:#FF6B00;
+}
+
+/* Hero Section */
+
+.hero{
+    height:90vh;
+    background:
+    linear-gradient(rgba(0,0,0,.6),
+    rgba(0,0,0,.6)),
+    url('images/hero-car.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:22px;
+    margin-bottom:35px;
+}
+
+.hero button{
+    background:#FF6B00;
+    color:white;
+    border:none;
+    padding:15px 35px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* Search Box */
+
+.search-box{
+    width:85%;
+    margin:-60px auto 70px;
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.search-box select,
+.search-box input{
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.search-box button{
+    background:#FF6B00;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* Features */
+
+.features{
+    width:85%;
+    margin:0 auto 80px;
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.box{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.box:hover{
+    transform:translateY(-10px);
+}
+
+.box i{
+    font-size:45px;
+    color:#FF6B00;
+    margin-bottom:20px;
+}
+
+/* Featured Cars */
+
+.cars{
+    width:85%;
+    margin:0 auto 80px;
+}
+
+.cars h2{
+    text-align:center;
+    color:#0F172A;
+    margin-bottom:40px;
+}
+
+.car-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.content{
+    padding:25px;
+}
+
+.price{
+    color:#FF6B00;
+    font-size:28px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.content button{
+    width:100%;
+    background:#0F172A;
+    color:white;
+    border:none;
+    padding:14px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* Newsletter */
+
+.newsletter{
+    background:#0F172A;
+    color:white;
+    text-align:center;
+    padding:80px 8%;
+}
+
+.newsletter input{
+    width:350px;
+    max-width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+.newsletter button{
+    background:#FF6B00;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    border-radius:10px;
+    margin-left:10px;
+    cursor:pointer;
+}
+
+/* Footer */
+
+footer{
+    background:#08111f;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav ul{
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+
+<nav>
+
+<div class="logo">
+<i class="fa-solid fa-car"></i> DriveX
+</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="vehicles.html">Buy Vehicles</a></li>
+<li><a href="vehicle details.html">Vehicle Details</a></li>
+<li><a href="sell-vehicle.html">Sell Car</a></li>
+<li><a href="wishlist.html">Wishlist</a></li>
+<li><a href="payment.html">Payment</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="profile.html">Profile</a></li>
+<li><a href="admin.html">Admin</a></li>
+<li><a href="login.html">Login</a></li>
+</ul>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+<div>
+<h1>Find Your Dream Car</h1>
+<p>Buy and Sell Premium Used Cars with Confidence</p>
+
+<button onclick="location.href='vehicles.html'">
+Explore Cars
+</button>
+</div>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtKG02OoD5LU3yUrcuuVLsFPKbC0OmGyvKw8rWfJIiZw&s=10">
+</section>
+
+<!-- Search -->
+
+<div class="search-box">
+
+<select>
+<option>Select Brand</option>
+<option>BMW</option>
+<option>Audi</option>
+<option>Mercedes</option>
+<option>Toyota</option>
+</select>
+
+<select>
+<option>Price Range</option>
+<option>₹5L - ₹10L</option>
+<option>₹10L - ₹20L</option>
+<option>₹20L+</option>
+</select>
+
+<input type="text" placeholder="Enter Location">
+
+<button>Search</button>
+
+</div>
+
+<!-- Features -->
+
+<section class="features">
+
+<div class="box">
+<i class="fa-solid fa-car"></i>
+<h3>5000+ Cars</h3>
+<p>Verified vehicles.</p>
+</div>
+
+<div class="box">
+<i class="fa-solid fa-user-check"></i>
+<h3>Trusted Sellers</h3>
+<p>100% genuine dealers.</p>
+</div>
+
+<div class="box">
+<i class="fa-solid fa-credit-card"></i>
+<h3>Secure Payment</h3>
+<p>Easy transactions.</p>
+</div>
+
+<div class="box">
+<i class="fa-solid fa-headset"></i>
+<h3>24/7 Support</h3>
+<p>Always here to help.</p>
+</div>
+
+</section>
+
+<!-- Featured Cars -->
+
+<section class="cars">
+
+<h2>Featured Vehicles</h2>
+
+<div class="car-grid">
+
+<div class="card">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGmcKS1N0YYs78NcQQluadTFfPJ92UDC9mJZ4bQBQ3gA&s=10">
+<div class="content">
+<h3>BMW X5</h3>
+<div class="price">₹45,00,000</div>
+<button onclick="location.href='vehicle-details.html'">
+View Details
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5XCIAfXCZxNt_bP6JfL23VNdD7_JHEudA2Fvborq40Q&s=10">
+<div class="content">
+<h3>Audi A6</h3>
+<div class="price">₹38,50,000</div>
+<button onclick="location.href='vehicle-details.html'">
+View Details
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV6NSXrZNyHmqND0uQflpZZ6SzNTyofyHPlsDkc7BiGg&s=10">
+<div class="content">
+<h3>Mercedes C-Class</h3>
+<div class="price">₹55,00,000</div>
+<button onclick="location.href='vehicle-details.html'">
+View Details
+</button>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- Newsletter -->
+
+<section class="newsletter">
+
+<h2>Subscribe for Latest Deals</h2>
+<p>Get updates on premium vehicles and offers.</p>
+
+<br>
+
+<input type="email"
+placeholder="Enter your email">
+
+<button>Subscribe</button>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+<h3>DriveX</h3>
+<p>Premium Second-Hand Vehicle Marketplace</p>
+<p>© 2026 DriveX. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>
+```

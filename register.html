@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register | DriveX</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.6),
+    rgba(0,0,0,0.6)),
+    url("images/hero-car.jpg");
+    background-size:cover;
+    background-position:center;
+}
+
+/* Navbar */
+
+nav{
+    background:#0F172A;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:#fff;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.logo i{
+    color:#FF6B00;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-size:17px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#FF6B00;
+}
+
+/* Register Section */
+
+.register-section{
+    min-height:88vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.register-box{
+    width:500px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(20px);
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    color:white;
+}
+
+.register-box h1{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.register-box p{
+    text-align:center;
+    color:#ddd;
+    margin-bottom:35px;
+}
+
+.input-box{
+    margin-bottom:20px;
+}
+
+.input-box label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.input-box input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    outline:none;
+}
+
+.input-box input[type="file"]{
+    background:white;
+    cursor:pointer;
+}
+
+.register-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    background:#FF6B00;
+    color:white;
+    border-radius:12px;
+    font-size:18px;
+    cursor:pointer;
+    margin-top:15px;
+    transition:.3s;
+}
+
+.register-btn:hover{
+    background:#ff8a33;
+}
+
+.login-link{
+    text-align:center;
+    margin-top:25px;
+}
+
+.login-link a{
+    color:#FF6B00;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .register-box{
+        width:100%;
+        padding:30px;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+
+<div class="logo">
+<i class="fa-solid fa-car"></i>
+DriveX
+</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="vehicles.html">Cars</a></li>
+<li><a href="sell-vehicle.html">Sell</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="login.html">Login</a></li>
+</ul>
+
+</nav>
+
+<!-- Register Section -->
+<section class="register-section">
+
+<div class="register-box">
+
+<h1>Create Account</h1>
+<p>Join DriveX and start buying or selling cars.</p>
+
+<form id="registerForm">
+
+<div class="input-box">
+<label>Full Name</label>
+<input type="text"
+placeholder="Enter your full name"
+required>
+</div>
+
+<div class="input-box">
+<label>Email Address</label>
+<input type="email"
+placeholder="Enter your email"
+required>
+</div>
+
+<div class="input-box">
+<label>Phone Number</label>
+<input type="tel"
+placeholder="Enter your phone number"
+required>
+</div>
+
+<div class="input-box">
+<label>Password</label>
+<input type="password"
+placeholder="Create password"
+required>
+</div>
+
+<div class="input-box">
+<label>Confirm Password</label>
+<input type="password"
+placeholder="Confirm password"
+required>
+</div>
+
+<div class="input-box">
+<label>Upload Profile Picture</label>
+<input type="file"
+accept="image/*">
+</div>
+
+<button class="register-btn">
+Create Account
+</button>
+
+</form>
+
+<div class="login-link">
+Already have an account?
+<a href="login.html">Login</a>
+</div>
+
+</div>
+
+</section>
+
+<script>
+document.getElementById("registerForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    alert("Registration Successful!");
+
+    window.location.href = "login.html";
+});
+</script>
+
+</body>
+</html>

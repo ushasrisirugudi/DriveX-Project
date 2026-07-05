@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sell Your Car | DriveX</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f8fafc;
+}
+
+/* Navbar */
+
+nav{
+    background:#0F172A;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:#fff;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.logo i{
+    color:#FF6B00;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#fff;
+    font-size:17px;
+}
+
+nav ul li a:hover{
+    color:#FF6B00;
+}
+
+/* Banner */
+
+.banner{
+    height:45vh;
+    background:
+    linear-gradient(rgba(0,0,0,.6),
+    rgba(0,0,0,.6)),
+    url('images/hero-car.jpg');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    text-align:center;
+}
+
+.banner h1{
+    font-size:55px;
+}
+
+.banner p{
+    margin-top:15px;
+    font-size:20px;
+}
+
+/* Form Container */
+
+.container{
+    width:85%;
+    max-width:900px;
+    margin:60px auto;
+    background:#fff;
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+/* Progress Bar */
+
+.progress{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:40px;
+}
+
+.step{
+    width:45px;
+    height:45px;
+    background:#ddd;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+}
+
+.step.active{
+    background:#FF6B00;
+}
+
+/* Form */
+
+.form-step{
+    display:none;
+}
+
+.form-step.active{
+    display:block;
+}
+
+.form-step h2{
+    margin-bottom:30px;
+    color:#0F172A;
+}
+
+.input-box{
+    margin-bottom:20px;
+}
+
+.input-box label{
+    display:block;
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+.input-box input,
+.input-box select,
+.input-box textarea{
+    width:100%;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+}
+
+textarea{
+    resize:none;
+    height:120px;
+}
+
+.two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+/* Buttons */
+
+.buttons{
+    margin-top:30px;
+    display:flex;
+    justify-content:space-between;
+}
+
+button{
+    padding:14px 30px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.next-btn{
+    background:#FF6B00;
+    color:#fff;
+}
+
+.prev-btn{
+    background:#0F172A;
+    color:#fff;
+}
+
+.submit-btn{
+    background:#22c55e;
+    color:#fff;
+}
+
+/* Success */
+
+.success{
+    text-align:center;
+    display:none;
+}
+
+.success i{
+    font-size:80px;
+    color:#22c55e;
+    margin-bottom:20px;
+}
+
+.success h2{
+    color:#22c55e;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .banner h1{
+        font-size:38px;
+    }
+
+    .two-col{
+        grid-template-columns:1fr;
+    }
+
+    .buttons{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .progress{
+        gap:10px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+
+<nav>
+
+<div class="logo">
+<i class="fa-solid fa-car"></i>
+DriveX
+</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="vehicles.html">Vehicles</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="profile.html">Profile</a></li>
+</ul>
+
+</nav>
+
+<!-- Banner -->
+
+<section class="banner">
+
+<div>
+<h1>Sell Your Vehicle</h1>
+<p>List your car in a few simple steps.</p>
+</div>
+
+</section>
+
+<!-- Form -->
+
+<div class="container">
+
+<div class="progress">
+
+<div class="step active">1</div>
+<div class="step">2</div>
+<div class="step">3</div>
+<div class="step">4</div>
+<div class="step">5</div>
+
+</div>
+
+<form id="sellForm">
+
+<!-- Step 1 -->
+
+<div class="form-step active">
+
+<h2>Vehicle Information</h2>
+
+<div class="two-col">
+
+<div class="input-box">
+<label>Brand</label>
+<input type="text" placeholder="BMW">
+</div>
+
+<div class="input-box">
+<label>Model</label>
+<input type="text" placeholder="X5">
+</div>
+
+</div>
+
+<div class="two-col">
+
+<div class="input-box">
+<label>Year</label>
+<input type="number">
+</div>
+
+<div class="input-box">
+<label>Fuel Type</label>
+<select>
+<option>Petrol</option>
+<option>Diesel</option>
+<option>Electric</option>
+</select>
+</div>
+
+</div>
+
+</div>
+
+<!-- Step 2 -->
+
+<div class="form-step">
+
+<h2>Upload Images</h2>
+
+<div class="input-box">
+<label>Upload Vehicle Photos</label>
+<input type="file" multiple>
+</div>
+
+</div>
+
+<!-- Step 3 -->
+
+<div class="form-step">
+
+<h2>Pricing Details</h2>
+
+<div class="input-box">
+<label>Expected Price</label>
+<input type="number"
+placeholder="Enter Price">
+</div>
+
+</div>
+
+<!-- Step 4 -->
+
+<div class="form-step">
+
+<h2>Seller Information</h2>
+
+<div class="input-box">
+<label>Name</label>
+<input type="text">
+</div>
+
+<div class="input-box">
+<label>Phone Number</label>
+<input type="text">
+</div>
+
+<div class="input-box">
+<label>Address</label>
+<textarea></textarea>
+</div>
+
+</div>
+
+<!-- Step 5 -->
+
+<div class="form-step">
+
+<h2>Review & Submit</h2>
+
+<p>
+Please verify all vehicle details before
+submitting your listing.
+</p>
+
+</div>
+
+<div class="buttons">
+
+<button type="button"
+class="prev-btn">
+Previous
+</button>
+
+<button type="button"
+class="next-btn">
+Next
+</button>
+
+<button type="submit"
+class="submit-btn"
+style="display:none;">
+Submit
+</button>
+
+</div>
+
+</form>
+
+<div class="success" id="success">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<h2>Vehicle Listed Successfully!</h2>
+
+<p>Your car has been submitted for approval.</p>
+
+</div>
+
+</div>
+
+<script>
+
+const steps =
+document.querySelectorAll(".form-step");
+
+const circles =
+document.querySelectorAll(".step");
+
+const nextBtn =
+document.querySelector(".next-btn");
+
+const prevBtn =
+document.querySelector(".prev-btn");
+
+const submitBtn =
+document.querySelector(".submit-btn");
+
+let current = 0;
+
+function updateForm(){
+
+steps.forEach(step =>
+step.classList.remove("active"));
+
+circles.forEach(c =>
+c.classList.remove("active"));
+
+steps[current].classList.add("active");
+
+for(let i=0;i<=current;i++){
+circles[i].classList.add("active");
+}
+
+prevBtn.style.display =
+current===0 ? "none" : "block";
+
+nextBtn.style.display =
+current===steps.length-1 ?
+"none" : "block";
+
+submitBtn.style.display =
+current===steps.length-1 ?
+"block" : "none";
+}
+
+updateForm();
+
+nextBtn.onclick = ()=>{
+if(current < steps.length-1){
+current++;
+updateForm();
+}
+};
+
+prevBtn.onclick = ()=>{
+if(current > 0){
+current--;
+updateForm();
+}
+};
+
+document.getElementById("sellForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+this.style.display = "none";
+
+document.getElementById("success")
+.style.display = "block";
+
+});
+
+</script>
+
+</body>
+</html>

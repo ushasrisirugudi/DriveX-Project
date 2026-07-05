@@ -1,0 +1,451 @@
+/* ===========================
+   GOOGLE FONT
+=========================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+    --primary:#0F172A;
+    --secondary:#FF6B00;
+    --accent:#3B82F6;
+    --light:#F8FAFC;
+    --white:#ffffff;
+    --text:#1E293B;
+    --shadow:0 10px 30px rgba(0,0,0,0.15);
+    --transition:0.4s ease;
+}
+
+.dark-mode{
+    --primary:#020617;
+    --light:#111827;
+    --white:#1E293B;
+    --text:#ffffff;
+}
+
+/* ===========================
+   GLOBAL
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--light);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:rgba(15,23,42,0.9);
+    backdrop-filter:blur(15px);
+}
+
+.logo{
+    color:#fff;
+    font-size:30px;
+    font-weight:700;
+}
+
+.logo i{
+    color:var(--secondary);
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+}
+
+.nav-links li{
+    margin:0 20px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+    transition:var(--transition);
+}
+
+.nav-links a:hover{
+    color:var(--secondary);
+}
+
+.nav-btns{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.login-btn{
+    background:linear-gradient(
+        45deg,
+        #ff6b00,
+        #ff914d
+    );
+    color:#fff;
+    padding:10px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+#darkBtn{
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    background:#fff;
+    font-size:18px;
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+
+.hero{
+    width:100%;
+    height:100vh;
+    background:
+    linear-gradient(
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.6)),
+    url('../images/hero-car.jpg');
+
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.hero h1{
+    font-size:65px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+.hero-btn{
+    background:linear-gradient(
+        45deg,
+        #ff6b00,
+        #ff914d
+    );
+    color:#fff;
+    text-decoration:none;
+    padding:15px 35px;
+    border-radius:40px;
+    font-size:18px;
+    font-weight:600;
+    transition:0.4s;
+}
+
+.hero-btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 30px rgba(255,107,0,.4);
+}
+
+/* ===========================
+   SEARCH BOX
+=========================== */
+
+.search-box{
+    padding:80px 8%;
+    margin-top:-80px;
+    position:relative;
+    z-index:100;
+}
+
+.search-card{
+    background:rgba(255,255,255,0.9);
+    backdrop-filter:blur(20px);
+    padding:40px;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+}
+
+.search-card input,
+.search-card select{
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    outline:none;
+}
+
+.search-card button{
+    background:var(--secondary);
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:17px;
+    font-weight:600;
+}
+
+/* ===========================
+   FEATURED CARS
+=========================== */
+
+.featured{
+    padding:100px 8%;
+}
+
+.featured h2{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:60px;
+}
+
+.car-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
+}
+
+.car-card{
+    background:#fff;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:0.5s;
+}
+
+.car-card:hover{
+    transform:translateY(-12px);
+}
+
+.car-card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card-content h3{
+    font-size:25px;
+}
+
+.card-content p{
+    color:#666;
+    margin:15px 0;
+}
+
+.card-content h4{
+    color:var(--secondary);
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+.card-content .btn{
+    display:inline-block;
+    background:var(--primary);
+    color:#fff;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:30px;
+}
+
+/* ===========================
+   WHY US
+=========================== */
+
+.why-us{
+    padding:100px 8%;
+    background:#fff;
+}
+
+.why-us h2{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:60px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+    gap:35px;
+}
+
+.feature-box{
+    background:var(--light);
+    text-align:center;
+    padding:50px 30px;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    transition:0.4s;
+}
+
+.feature-box:hover{
+    transform:translateY(-10px);
+}
+
+.feature-box i{
+    font-size:50px;
+    color:var(--secondary);
+    margin-bottom:25px;
+}
+
+.feature-box h3{
+    font-size:25px;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+    background:var(--primary);
+    color:#fff;
+    text-align:center;
+    padding:60px 20px;
+}
+
+footer h2{
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+footer p{
+    margin-bottom:25px;
+}
+
+.social i{
+    font-size:25px;
+    margin:0 15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.social i:hover{
+    color:var(--secondary);
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--secondary);
+    border-radius:10px;
+}
+
+/* ===========================
+   ANIMATIONS
+=========================== */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero-content,
+.car-card,
+.feature-box{
+    animation:fadeUp 1s ease;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:991px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+}
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .search-card{
+        padding:25px;
+    }
+
+    .featured h2,
+    .why-us h2{
+        font-size:32px;
+    }
+}
+
+@media(max-width:480px){
+
+    .hero h1{
+        font-size:28px;
+    }
+
+    .logo{
+        font-size:25px;
+    }
+
+    .card-content h4{
+        font-size:22px;
+    }
+}

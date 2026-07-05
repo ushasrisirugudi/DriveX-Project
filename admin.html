@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | DriveX</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+}
+
+/* Layout */
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:280px;
+    background:#0F172A;
+    color:white;
+    padding:30px;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    margin-bottom:40px;
+}
+
+.logo i{
+    color:#FF6B00;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    margin-bottom:15px;
+}
+
+.sidebar ul li a{
+    color:white;
+    text-decoration:none;
+    display:block;
+    padding:15px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.sidebar ul li a:hover,
+.active{
+    background:#FF6B00;
+}
+
+/* Main */
+
+.main{
+    flex:1;
+    padding:40px;
+}
+
+/* Top Bar */
+
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+.top-bar h1{
+    color:#0F172A;
+}
+
+.admin{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.admin img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+
+/* Statistics */
+
+.stats{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    margin-bottom:40px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.card i{
+    font-size:35px;
+    color:#FF6B00;
+    margin-bottom:15px;
+}
+
+.card h2{
+    margin:10px 0;
+    color:#0F172A;
+}
+
+.card p{
+    color:#666;
+}
+
+/* Tables */
+
+.table-box{
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.table-box h2{
+    margin-bottom:25px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table th,
+table td{
+    padding:15px;
+    text-align:left;
+    border-bottom:1px solid #eee;
+}
+
+table th{
+    color:#0F172A;
+}
+
+/* Status */
+
+.active-status{
+    color:#22c55e;
+    font-weight:bold;
+}
+
+.pending{
+    color:#FF6B00;
+    font-weight:bold;
+}
+
+/* Charts */
+
+.charts{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.chart{
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.bar{
+    height:15px;
+    background:#ddd;
+    border-radius:20px;
+    margin:20px 0;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    background:#FF6B00;
+    border-radius:20px;
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+    .container{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+    }
+
+    .charts{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:768px){
+
+    .top-bar{
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+    }
+
+    table{
+        font-size:14px;
+        display:block;
+        overflow-x:auto;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<div class="logo">
+<i class="fa-solid fa-car"></i>
+DriveX
+</div>
+
+<ul>
+<li><a href="#" class="active">
+<i class="fa-solid fa-chart-line"></i>
+ Dashboard
+</a></li>
+
+<li><a href="#">
+<i class="fa-solid fa-users"></i>
+ Users
+</a></li>
+
+<li><a href="#">
+<i class="fa-solid fa-car"></i>
+ Vehicles
+</a></li>
+
+<li><a href="#">
+<i class="fa-solid fa-user-tie"></i>
+ Sellers
+</a></li>
+
+<li><a href="#">
+<i class="fa-solid fa-credit-card"></i>
+ Payments
+</a></li>
+
+<li><a href="#">
+<i class="fa-solid fa-file-lines"></i>
+ Reports
+</a></li>
+
+<li><a href="#">
+<i class="fa-solid fa-star"></i>
+ Reviews
+</a></li>
+
+<li><a href="#">
+<i class="fa-solid fa-envelope"></i>
+ Messages
+</a></li>
+
+<li><a href="#">
+<i class="fa-solid fa-gear"></i>
+ Settings
+</a></li>
+
+<li><a href="login.html">
+<i class="fa-solid fa-right-from-bracket"></i>
+ Logout
+</a></li>
+</ul>
+
+</div>
+
+<!-- Main Content -->
+
+<div class="main">
+
+<div class="top-bar">
+
+<h1>Admin Dashboard</h1>
+
+<div class="admin">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5EQvMrjlCYVFivm3_2PuTyDh8lJqzgGEfAkywFU-hlA&s=10">
+<div>
+<h3>Admin</h3>
+<p>DriveX Manager</p>
+</div>
+</div>
+
+</div>
+
+<!-- Statistics -->
+
+<div class="stats">
+
+<div class="card">
+<i class="fa-solid fa-users"></i>
+<h2>12,560</h2>
+<p>Total Users</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-car"></i>
+<h2>4,850</h2>
+<p>Total Vehicles</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-list"></i>
+<h2>2,430</h2>
+<p>Active Listings</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-indian-rupee-sign"></i>
+<h2>₹8.5 Cr</h2>
+<p>Revenue</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-check"></i>
+<h2>1,240</h2>
+<p>Sold Vehicles</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-clock"></i>
+<h2>82</h2>
+<p>Pending Approvals</p>
+</div>
+
+</div>
+
+<!-- Recent Users -->
+
+<div class="table-box">
+
+<h2>Recent Users</h2>
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Rahul Sharma</td>
+<td>rahul@gmail.com</td>
+<td class="active-status">Active</td>
+</tr>
+
+<tr>
+<td>Priya Singh</td>
+<td>priya@gmail.com</td>
+<td class="active-status">Active</td>
+</tr>
+
+<tr>
+<td>Karan Verma</td>
+<td>karan@gmail.com</td>
+<td class="pending">Pending</td>
+</tr>
+
+</table>
+
+</div>
+
+<!-- Vehicle Listings -->
+
+<div class="table-box">
+
+<h2>Latest Vehicle Listings</h2>
+
+<table>
+
+<tr>
+<th>Vehicle</th>
+<th>Seller</th>
+<th>Price</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>BMW X5</td>
+<td>Rahul</td>
+<td>₹45,00,000</td>
+<td class="active-status">Approved</td>
+</tr>
+
+<tr>
+<td>Audi A6</td>
+<td>Priya</td>
+<td>₹38,50,000</td>
+<td class="pending">Pending</td>
+</tr>
+
+<tr>
+<td>Mercedes C-Class</td>
+<td>Karan</td>
+<td>₹55,00,000</td>
+<td class="active-status">Approved</td>
+</tr>
+
+</table>
+
+</div>
+
+<!-- Charts -->
+
+<div class="charts">
+
+<div class="chart">
+
+<h2>Monthly Sales</h2>
+
+<p>January</p>
+<div class="bar">
+<div class="fill" style="width:80%"></div>
+</div>
+
+<p>February</p>
+<div class="bar">
+<div class="fill" style="width:60%"></div>
+</div>
+
+<p>March</p>
+<div class="bar">
+<div class="fill" style="width:90%"></div>
+</div>
+
+</div>
+
+<div class="chart">
+
+<h2>User Growth</h2>
+
+<p>New Registrations</p>
+
+<div class="bar">
+<div class="fill" style="width:75%"></div>
+</div>
+
+<p>Premium Members</p>
+
+<div class="bar">
+<div class="fill" style="width:55%"></div>
+</div>
+
+<p>Active Users</p>
+
+<div class="bar">
+<div class="fill" style="width:85%"></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vehicle Details | DriveX</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f8fafc;
+}
+
+/* NAVBAR */
+
+nav{
+    background:#0F172A;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:#fff;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.logo i{
+    color:#FF6B00;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    color:#fff;
+    text-decoration:none;
+}
+
+nav ul li a:hover{
+    color:#FF6B00;
+}
+
+/* Banner */
+
+.banner{
+    height:45vh;
+    background:
+    linear-gradient(rgba(0,0,0,.6),
+    rgba(0,0,0,.6)),
+    url('images/hero-car.jpg');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    text-align:center;
+}
+
+.banner h1{
+    font-size:55px;
+}
+
+/* Main Section */
+
+.container{
+    padding:70px 8%;
+    display:grid;
+    grid-template-columns:1.3fr .7fr;
+    gap:40px;
+}
+
+/* Left Section */
+
+.car-details{
+    background:#fff;
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.car-image img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+.thumbnail{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.thumbnail img{
+    width:120px;
+    height:80px;
+    border-radius:12px;
+    object-fit:cover;
+    cursor:pointer;
+}
+
+/* Content */
+
+.title{
+    margin-top:30px;
+}
+
+.title h2{
+    font-size:35px;
+}
+
+.price{
+    color:#FF6B00;
+    font-size:40px;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+.info{
+    display:grid;
+    grid-template-columns:
+    repeat(3,1fr);
+    gap:20px;
+    margin-top:35px;
+}
+
+.box{
+    background:#f8fafc;
+    padding:20px;
+    text-align:center;
+    border-radius:15px;
+}
+
+.box i{
+    color:#FF6B00;
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+/* Specification */
+
+.specs{
+    margin-top:40px;
+}
+
+.specs table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.specs td{
+    padding:18px;
+    border-bottom:1px solid #eee;
+}
+
+/* Right Section */
+
+.side-card{
+    background:#fff;
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    margin-bottom:30px;
+}
+
+.side-card h2{
+    margin-bottom:20px;
+}
+
+/* Seller */
+
+.seller{
+    text-align:center;
+}
+
+.seller img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    margin-bottom:20px;
+}
+
+.seller p{
+    color:#666;
+    margin-bottom:10px;
+}
+
+/* Buttons */
+
+.btn{
+    width:100%;
+    border:none;
+    padding:15px;
+    border-radius:12px;
+    color:#fff;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:15px;
+}
+
+.orange{
+    background:#FF6B00;
+}
+
+.blue{
+    background:#0F172A;
+}
+
+/* EMI */
+
+.emi input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.emi-result{
+    background:#f8fafc;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    margin-top:20px;
+}
+
+/* Similar Cars */
+
+.similar{
+    padding:0 8% 80px;
+}
+
+.similar h2{
+    margin-bottom:30px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card-content button{
+    width:100%;
+    background:#FF6B00;
+    color:#fff;
+    border:none;
+    padding:12px;
+    border-radius:10px;
+    margin-top:15px;
+    cursor:pointer;
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+    .container{
+        grid-template-columns:1fr;
+    }
+
+    .info{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .banner h1{
+        font-size:40px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+
+<nav>
+
+<div class="logo">
+<i class="fa-solid fa-car"></i>
+DriveX
+</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="vehicles.html">Vehicles</a></li>
+<li><a href="sell-vehicle.html">Sell</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="profile.html">Profile</a></li>
+</ul>
+
+</nav>
+
+<!-- Banner -->
+
+<section class="banner">
+<div>
+<h1>Vehicle Details</h1>
+<p>Premium Second-Hand Vehicle</p>
+</div>
+</section>
+
+<!-- Main -->
+
+<section class="container">
+
+<!-- Left -->
+
+<div class="car-details">
+
+<div class="car-image">
+<img id="mainImage"
+src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0C9q6rRduWLpcIRaWRCArMVOAiVkJEqctzV_pfDYQlw&s=10">
+</div>
+
+<div class="thumbnail">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp5Ygw4oaV9oXSRF4sZd_ISv4EpokKt7LaqCOcYLn3Lw&s=10" onclick="changeImage(this)">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqDNWvCedgGmOKGtBb6H5B8TaaeoZyrXQEtS9p9bq09w&s=10" onclick="changeImage(this)">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTzwp6-MqcZD1H67hx1m0j_dsN1gpFOTecn1rMdfXZAg&s=10" onclick="changeImage(this)">
+</div>
+
+<div class="title">
+<h2>BMW X5 xDrive40i</h2>
+<div class="price">₹45,00,000</div>
+</div>
+
+<div class="info">
+
+<div class="box">
+<i class="fa-solid fa-calendar"></i>
+<h4>2022</h4>
+<p>Model Year</p>
+</div>
+
+<div class="box">
+<i class="fa-solid fa-gas-pump"></i>
+<h4>Petrol</h4>
+<p>Fuel Type</p>
+</div>
+
+<div class="box">
+<i class="fa-solid fa-road"></i>
+<h4>12,000 km</h4>
+<p>Mileage</p>
+</div>
+
+</div>
+
+<div class="specs">
+
+<h2>Specifications</h2>
+
+<table>
+
+<tr>
+<td>Brand</td>
+<td>BMW</td>
+</tr>
+
+<tr>
+<td>Transmission</td>
+<td>Automatic</td>
+</tr>
+
+<tr>
+<td>Color</td>
+<td>Black</td>
+</tr>
+
+<tr>
+<td>Engine</td>
+<td>2998 cc</td>
+</tr>
+
+<tr>
+<td>Seats</td>
+<td>5</td>
+</tr>
+
+<tr>
+<td>Ownership</td>
+<td>First Owner</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- Right -->
+
+<div>
+
+<div class="side-card seller">
+
+<h2>Seller Information</h2>
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5EQvMrjlCYVFivm3_2PuTyDh8lJqzgGEfAkywFU-hlA&s=10">
+
+<h3>Rahul Sharma</h3>
+<p>⭐ 4.9 Seller Rating</p>
+<p>Hyderabad, India</p>
+
+<button class="btn orange">
+Contact Seller
+</button>
+
+<button class="btn blue">
+Book Test Drive
+</button>
+
+<button class="btn orange">
+❤ Add to Wishlist
+</button>
+
+</div>
+
+<div class="side-card emi">
+
+<h2>EMI Calculator</h2>
+
+<input type="number"
+id="amount"
+placeholder="Loan Amount">
+
+<input type="number"
+id="months"
+placeholder="Months">
+
+<button class="btn blue"
+onclick="calculateEMI()">
+Calculate EMI
+</button>
+
+<div class="emi-result">
+<h3 id="emiText">
+Monthly EMI: ₹0
+</h3>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Similar Cars -->
+
+<section class="similar">
+
+<h2>Similar Vehicles</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8bqZAVkBYuBt-e-ABw_cbB_7xlQQX8v9TXtYv8JjWvA&s=10">
+<div class="card-content">
+<h3>Thar Roxx </h3>
+<p>₹38,50,000</p>
+<button>View Details</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmb-cqNmWAf9CxNuk4-zmuFyop8BdFP4Ft7B2O2hAzeg&s=10">
+<div class="card-content">
+<h3>Volkswagen</h3>
+<p>₹55,00,000</p>
+<button>View Details</button>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+function changeImage(img){
+    document.getElementById("mainImage").src =
+    img.src;
+}
+
+function calculateEMI(){
+
+    let amount =
+    document.getElementById("amount").value;
+
+    let months =
+    document.getElementById("months").value;
+
+    if(amount==="" || months===""){
+        alert("Enter values");
+        return;
+    }
+
+    let emi =
+    Math.round(amount/months);
+
+    document.getElementById("emiText")
+    .innerHTML =
+    "Monthly EMI: ₹" + emi;
+}
+
+</script>
+
+</body>
+</html>
